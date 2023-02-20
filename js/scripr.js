@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', () => {
             
         }
         return {
-            'tital': t,
+            'total': t,
             'days': days,
             'hours': hours,
             'minutes': minutes,
