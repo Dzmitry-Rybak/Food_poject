@@ -95,4 +95,62 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     setClock('.timer', deadline);
+
+    // Modal
+
+    const modal = document.querySelector('.modal'),
+          modalOpen = document.querySelectorAll('[data-modal]'),
+          modalCloseBtn = document.querySelector('[data-close]');
+
+    
+
+
+    function openModal () {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // block website  scrolling  while modal is open
+        clearInterval(modalTimerId) // if user open it, don't show it again after 3sec
+    }
+
+    modalOpen.forEach(item => {
+        item.addEventListener('click',openModal);
+    });
+
+    function closeModal (){
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // allow scrolling
+    }
+
+
+    modalCloseBtn.addEventListener('click', closeModal)
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal()
+        }
+    });
+
+    // if click esc - close modal
+    document.addEventListener('keydown', (e) => { 
+        if(e.code === 'Escape' && window.getComputedStyle(modal).display === 'block') {
+            closeModal()
+        }
+    });
+
+    const modalTimerId = setTimeout(openModal, 3000);
+
+    function showModalByScroll () {
+        // if scrollY and screan == all wibsite hight it's means that the user scrolled to the end of the website
+        //  -1px to fix bugs 
+        if(window.scrollY + document.documentElement.clientHeight >= document.documentElement.scrollHeight -1){
+            openModal();
+            window.removeEventListener('scroll', showModalByScroll);  // only once show modal
+        }
+    }
+
+    window.addEventListener('scroll', showModalByScroll);
+
 }) 
+
+
+
+
