@@ -191,7 +191,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 new MenuCard(img, altimg, title, descr, price).render();
             });
         })
-        
+
         // Forms  using fetch API
 
         const forms = document.querySelectorAll('form');
@@ -268,4 +268,54 @@ window.addEventListener('DOMContentLoaded', () => {
                 closeModal();
             }, 4000);
         }
+
+
+    // Slider
+
+    const prevSlider = document.querySelector('.offer__slider-prev'),
+          nextSlider = document.querySelector('.offer__slider-next'),
+          slides = document.querySelectorAll('.offer__slide');
+    let current = document.querySelector('#current'),
+        total = document.querySelector('#total'),
+        indexSlide = 1;
+    
+    
+    function numberOfSlide () {
+        if (slides.length < 10) {
+            total.textContent = `0${slides.length}`;
+        } else {
+            total.textContent = slides.length;
+        }
+    }
+
+    function showSlides (n){
+        
+        if (n > slides.length) {
+            indexSlide = 1
+        }
+        if (n < 1) {
+            indexSlide = slides.length
+        }
+
+        slides.forEach(item => item.style.display = 'none');
+        slides[indexSlide-1].style.display = 'block';  
+        
+        if (slides.length < 10) {
+            current.textContent = `0${indexSlide}`;
+        } else {
+            current.textContent = indexSlide;
+        }
+
+        numberOfSlide(indexSlide);
+    }
+
+    prevSlider.addEventListener('click', () => {
+        showSlides(indexSlide -= 1 )
+    });
+    nextSlider.addEventListener('click', () => {
+        showSlides(indexSlide += 1 )
+    });
+
+    showSlides(indexSlide);
 })
+
