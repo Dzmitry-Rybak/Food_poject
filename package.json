@@ -12,13 +12,26 @@
   },
   "author": "Dzmitry Rybak",
   "license": "ISC",
+  "browserslist": [
+    "> 1%"
+  ],
   "bugs": {
     "url": "https://github.com/Dzmitry-Rybak/Food_poject/issues"
   },
   "homepage": "https://github.com/Dzmitry-Rybak/Food_poject#readme",
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
     "json-server": "^0.17.2",
     "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "core-js": "^3.29.1",
+    "es6-promise": "^4.2.8",
+    "nodelist-foreach-polyfill": "^1.2.0",
+    "regenerator-runtime": "^0.13.11"
   }
 }
