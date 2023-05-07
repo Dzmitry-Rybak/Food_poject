@@ -1,6 +1,6 @@
 # Project Description
 
-This project was completed as part of a Udemy course, where the front-end was provided by the course instructor and the task was to implement additional functionality using JavaScript. The added functionality includes a slider, a calorie calculator, and a discount countdown timer.
+This project was completed as part of a Udemy course, where the HTML was provided by the course instructor and the task was to implement additional functionality using JavaScript. The added functionality includes a slider, a calorie calculator, and a discount countdown timer.
 
 ## Technologies Used
 
